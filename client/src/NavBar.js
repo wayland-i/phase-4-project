@@ -5,51 +5,53 @@ import Login from "./Login";
 import PetSitters from "./PetSitters";
 import Signup from "./SignUp";
 import MyAccount from "./MyAccount";
+import Banner from "./Styles/Banner.Style";
 
 
 
 function NavBar() {
     return(
         <BrowserRouter>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/petsitters">PetSitters</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/myaccount">My Account</Link>
-            </li>
-          </ul>
-  
-          <hr />
-  
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/petsitters">
-              <PetSitters />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/myaccount">
-              <MyAccount/>
-            </Route>
-          </Switch>
-        </div>
+          <div>
+            <Banner>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/petsitters">PetSitters</Link>
+                </li>
+                <li>
+                  <Link to="/signup">Signup</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/myaccount">My Account</Link>
+                </li>
+              </ul>
+            </Banner>
+            <hr />
+    
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/petsitters">
+                <PetSitters />
+              </Route>
+              <Route path="/signup">
+                <Signup />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/myaccount">
+                <MyAccount/>
+              </Route>
+            </Switch>
+          </div>
       </BrowserRouter>
     )
 }
