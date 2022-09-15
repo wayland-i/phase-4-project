@@ -8,6 +8,7 @@ import Signup from "./SignUp";
 import MyAccount from "./MyAccount";
 import Logout from "./Logout";
 import LoggedOut from "./LoggedOut";
+import UpdatePet from "./UpdatePet";
 
 
 
@@ -23,10 +24,15 @@ function NavBar() {
         res.json().then((user) => {
           setCurrentUser(user);
           setIsAuthenticated(true);
+          console.log(currentUser.id)
         });
       }
     });
   }, []);
+
+  // useEffect(()=> {
+  //   fetch("/")
+  // })
 
   if (!isAuthenticated) {
     return <div>
@@ -81,10 +87,13 @@ function NavBar() {
               <Login setCurrentUser={setCurrentUser}/>
             </Route>
             <Route path="/myaccount">
-              <MyAccount/>
+              <MyAccount currentUser={currentUser}/>
+            </Route>
+            <Route exact path= "/pets/:id">
+              <UpdatePet/>
             </Route>
             <Route path="/logout">
-              <LoggedOut setCurrentUser={setCurrentUser}/>
+              <LoggedOut setCurrentUser={setCurrentUser} currentUser={currentUser}/>
             </Route>
           </Switch>
         </div>
